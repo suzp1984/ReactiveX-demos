@@ -4,14 +4,35 @@ import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by jacobsu on 3/23/16.
  */
 public class ObservableCreatRunner implements IRxRunner {
     public void run() {
-        System.out.println( "--- Observable from an array ---" );
+        System.out.println("--- Observable from an array ---");
         final Integer[] intArray = new Integer[] {1, 2, 3, 4, 5};
         Observable.from(intArray).subscribe(new Observer<Integer>() {
+            public void onCompleted() {
+                System.out.println("completed.");
+            }
+
+            public void onError(Throwable throwable) {
+                System.out.println(throwable.toString());
+            }
+
+            public void onNext(Integer integer) {
+                System.out.println(integer);
+            }
+        });
+
+        System.out.println("--- Observable from a list ---");
+        List<Integer> intList = Arrays.asList(intArray);
+
+        Observable.from(intList).subscribe(new Observer<Integer>() {
             public void onCompleted() {
                 System.out.println("completed.");
             }
@@ -45,6 +66,21 @@ public class ObservableCreatRunner implements IRxRunner {
 
             public void onNext(Integer integer) {
                 System.out.println(integer);
+            }
+        });
+
+        System.out.println("--- Observable just  ---");
+        Observable.just(intArray).subscribe(new Observer<Integer[]>() {
+            public void onCompleted() {
+                System.out.println("completed.");
+            }
+
+            public void onError(Throwable throwable) {
+                System.out.println(throwable.toString());
+            }
+
+            public void onNext(Integer[] integers) {
+                System.out.println(integers);
             }
         });
     }
