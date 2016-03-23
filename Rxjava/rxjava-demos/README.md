@@ -8,7 +8,7 @@ compile and assemble a fat jar with dependencies.
     mvn clean compile assembly:single
 ```
 
-package a jar without dependency.
+or package with following cmd
 
 ```bash
     mvn package
