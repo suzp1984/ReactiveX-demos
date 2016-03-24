@@ -83,5 +83,25 @@ public class ObservableCreatRunner implements IRxRunner {
                 System.out.println(integers);
             }
         });
+
+        System.out.println("--- Observable range ---");
+        Observable.range(1, 5).subscribe(new Observer<Integer>() {
+            public void onCompleted() {
+                System.out.println("completed.");
+            }
+
+            public void onError(Throwable throwable) {
+                System.out.println(throwable.toString());
+            }
+
+            public void onNext(Integer integer) {
+                System.out.println(integer);
+            }
+        });
+
+        System.out.println("--- Observable repeat ---");
+        Observable.range(1, 5).repeat(2).subscribe(x -> System.out.println(x),
+                                                   x -> System.out.println(x.toString()),
+                                                   () -> System.out.println("completed."));
     }
 }
