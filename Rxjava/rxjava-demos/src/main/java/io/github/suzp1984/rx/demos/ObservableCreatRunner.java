@@ -7,6 +7,7 @@ import rx.Subscriber;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by jacobsu on 3/23/16.
@@ -101,7 +102,18 @@ public class ObservableCreatRunner implements IRxRunner {
 
         System.out.println("--- Observable repeat ---");
         Observable.range(1, 5).repeat(2).subscribe(x -> System.out.println(x),
-                                                   x -> System.out.println(x.toString()),
-                                                   () -> System.out.println("completed."));
+                x -> System.out.println(x.toString()),
+                () -> System.out.println("completed."));
+
+        System.out.println("--- Observable interval ---");
+        Observable.interval(250, TimeUnit.MILLISECONDS).subscribe(x -> System.out.println(x),
+                x -> System.out.println(x.toString()),
+                () -> System.out.println("completed."));
+
+        System.out.println("--- Observable timer ---");
+        Observable.timer(1000, TimeUnit.MILLISECONDS).timestamp().subscribe(x -> System.out.println(x),
+                x -> System.out.println(x.toString()),
+                () -> System.out.println("completed."));
+        System.out.println("---- wait for 1 seconds ---");
     }
 }
