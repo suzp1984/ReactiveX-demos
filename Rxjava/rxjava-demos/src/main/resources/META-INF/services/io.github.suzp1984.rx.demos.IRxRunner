@@ -1,2 +1,4 @@
 io.github.suzp1984.rx.demos.ObservableCreatRunner
 io.github.suzp1984.rx.demos.ObservableTransformingRunner
+io.github.suzp1984.rx.demos.ObservableFilteringRunner
+
