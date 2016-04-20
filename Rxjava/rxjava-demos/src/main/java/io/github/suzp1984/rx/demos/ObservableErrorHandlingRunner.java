@@ -7,7 +7,7 @@ import rx.functions.Func2;
 /**
  * Created by jacobsu on 4/20/16.
  */
-public class ObservableCatchRunner implements IRxRunner {
+public class ObservableErrorHandlingRunner implements IRxRunner {
     @Override
     public void run() {
         System.out.println("Observable Catch");
