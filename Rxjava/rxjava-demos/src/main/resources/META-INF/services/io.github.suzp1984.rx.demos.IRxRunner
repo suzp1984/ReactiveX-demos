@@ -7,3 +7,4 @@ io.github.suzp1984.rx.demos.ObservableUtilityRunner
 io.github.suzp1984.rx.demos.ObservableConditionalRunner
 io.github.suzp1984.rx.demos.ObservableMathRunner
 io.github.suzp1984.rx.demos.ObservableConnectableRunner
+io.github.suzp1984.rx.demos.ObservableToRunner
